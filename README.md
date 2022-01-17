@@ -1,7 +1,7 @@
 # Ultimate Discord SDK
 
 This is A Discord SDK for Unity
-
+![image](https://user-images.githubusercontent.com/50788147/149820675-d0170829-f4cf-415b-9452-7bf6ff018f33.png)
 ## Features
 - Easy To Use.
 - Join/Request System,
