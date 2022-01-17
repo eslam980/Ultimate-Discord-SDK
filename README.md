@@ -5,7 +5,7 @@ This is A Discord SDK for Unity
 ## Features
 - Easy To Use.
 - Join/Request System,
-- Fully Unity Integration
+- Full Unity Integration
 - Modular Code (Easy To Understand)
 - Safe Mode.
 - Custom Inspector.
