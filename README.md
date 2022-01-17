@@ -2,7 +2,6 @@
 
 This is A Discord SDK for Unity
 
-
 ## Features
 - Easy To Use.
 - Join/Request System,
@@ -16,6 +15,11 @@ This is A Discord SDK for Unity
 - Ultimate Discord uses **Dll/Offical Discord C# SDK**
 - Create C# Script or Use The Template
 - Use NameSpace ```UDiscord``` to Access The Code
+
+## How To Get Started
+- Put **Plugins** File into to your Unity Project.
+- Make Script or Use The Template.
+- Use ```Using UDiscord``` to Access All The Fuctions
 
 ## Discord Manager
 This is The Manager that handle all the Work to Connect with discord
