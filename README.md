@@ -1,12 +1,23 @@
 # Ultimate Discord SDK
+
 This is A Discord SDK for Unity
 
-# Ultimate Discord Feature
 
-  Patch 0.01 Beta
-  1. Easy To Use
-  2. 100% Free
-  3. Support PUN 2
-  4. Modular Code (Easy to understand)
-  5. Fully Package Support
-  6. Unity Full Integration
+## Features
+- Easy To Use.
+- Join/Request System,
+- Fully Unity Integration
+- Modular Code (Easy To Understand)
+- Safe Mode.
+- Custom Inspector.
+- PUN 2 / Mirror Integration.
+
+## Usage
+- Ultimate Discord uses **Dll/Offical Discord C# SDK**
+- Create C# Script or Use The Template
+
+## Discord Manager
+This is The Manager that handle all the Work to Connect with discord
+
+## Discord_Start
+This Boolan to make the Template Work on Start here is the code **Code** for it ```OnConnect.AddListener(CallDiscord); OnConnect?.Invoke();```
