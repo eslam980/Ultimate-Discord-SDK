@@ -1,3 +1,4 @@
+#region Reference
 using System;
 using System.IO;
 using System.Text;
@@ -6,27 +7,28 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Events;
-//using Photon.Pun;
+
+#endregion
 
 namespace UDiscord
 {
     public class DiscordManager : MonoBehaviour
     {
-            public static DiscordManager App; void Awake() { App = this;}
-            [SerializeField] long Discord_AppID;
-            [SerializeField] string Discord_SteamID;
-            [SerializeField] bool Discord_Stay = false;
-            [SerializeField] bool Discord_Start = false;
+        public static DiscordManager App; void Awake() { App = this;}
+        public long Discord_AppID;
+        public string Discord_SteamID;
+        public bool Discord_Stay = false;
+        public bool Discord_Start = false;
 
-            [Header("RichPresence Settings")]
-            public RichPresence Richpresence = new RichPresence();
+        [Header("RichPresence Settings")]
+        public RichPresence Richpresence = new RichPresence();
 
-            [Header("Events Settings")]
-            public UnityEvent OnJoin = new UnityEvent();
-            public UnityEvent OnConnect = new UnityEvent();
-            public UnityEvent OnDisconnect = new UnityEvent();
-            public UnityEvent OnDestroy = new UnityEvent();
-            public Discord.Discord discord;
+        [Header("Events Settings")]
+        public UnityEvent OnJoin = new UnityEvent();
+        public UnityEvent OnConnect = new UnityEvent();
+        public UnityEvent OnDisconnect = new UnityEvent();
+        public UnityEvent OnDestroy = new UnityEvent();
+        public Discord.Discord discord;
 
             void Start()
             {
