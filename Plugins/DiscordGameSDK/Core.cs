@@ -1,9 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
-using UDiscord;
 
-namespace Discord
+namespace UDiscord
 {
     public enum Result
     {
@@ -698,7 +697,7 @@ namespace Discord
         }
     }
 
-    public partial class Discord : IDisposable
+    public partial class UDiscord : IDisposable
     {
         [StructLayout(LayoutKind.Sequential)]
         internal partial struct FFIEvents
@@ -950,7 +949,7 @@ namespace Discord
 
         private GCHandle? setLogHook;
 
-        public Discord(Int64 clientId, UInt64 flags)
+        public UDiscord(Int64 clientId, UInt64 flags)
         {
             FFICreateParams createParams;
             createParams.ClientId = clientId;
@@ -1500,7 +1499,7 @@ namespace Discord
         private static void OnCurrentUserUpdateImpl(IntPtr ptr)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.UserManagerInstance.OnCurrentUserUpdate != null)
             {
                 d.UserManagerInstance.OnCurrentUserUpdate.Invoke();
@@ -1860,7 +1859,7 @@ namespace Discord
         private static void OnActivityJoinImpl(IntPtr ptr, string secret)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.ActivityManagerInstance.OnActivityJoin != null)
             {
                 d.ActivityManagerInstance.OnActivityJoin.Invoke(secret);
@@ -1871,7 +1870,7 @@ namespace Discord
         private static void OnActivitySpectateImpl(IntPtr ptr, string secret)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.ActivityManagerInstance.OnActivitySpectate != null)
             {
                 d.ActivityManagerInstance.OnActivitySpectate.Invoke(secret);
@@ -1882,7 +1881,7 @@ namespace Discord
         private static void OnActivityJoinRequestImpl(IntPtr ptr, ref User user)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.ActivityManagerInstance.OnActivityJoinRequest != null)
             {
                 d.ActivityManagerInstance.OnActivityJoinRequest.Invoke(ref user);
@@ -1893,7 +1892,7 @@ namespace Discord
         private static void OnActivityInviteImpl(IntPtr ptr, ActivityActionType type, ref User user, ref Activity activity)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.ActivityManagerInstance.OnActivityInvite != null)
             {
                 d.ActivityManagerInstance.OnActivityInvite.Invoke(type, ref user, ref activity);
@@ -2042,7 +2041,7 @@ namespace Discord
         private static void OnRefreshImpl(IntPtr ptr)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.RelationshipManagerInstance.OnRefresh != null)
             {
                 d.RelationshipManagerInstance.OnRefresh.Invoke();
@@ -2053,7 +2052,7 @@ namespace Discord
         private static void OnRelationshipUpdateImpl(IntPtr ptr, ref Relationship relationship)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.RelationshipManagerInstance.OnRelationshipUpdate != null)
             {
                 d.RelationshipManagerInstance.OnRelationshipUpdate.Invoke(ref relationship);
@@ -2806,7 +2805,7 @@ namespace Discord
         private static void OnLobbyUpdateImpl(IntPtr ptr, Int64 lobbyId)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.LobbyManagerInstance.OnLobbyUpdate != null)
             {
                 d.LobbyManagerInstance.OnLobbyUpdate.Invoke(lobbyId);
@@ -2817,7 +2816,7 @@ namespace Discord
         private static void OnLobbyDeleteImpl(IntPtr ptr, Int64 lobbyId, UInt32 reason)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.LobbyManagerInstance.OnLobbyDelete != null)
             {
                 d.LobbyManagerInstance.OnLobbyDelete.Invoke(lobbyId, reason);
@@ -2828,7 +2827,7 @@ namespace Discord
         private static void OnMemberConnectImpl(IntPtr ptr, Int64 lobbyId, Int64 userId)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.LobbyManagerInstance.OnMemberConnect != null)
             {
                 d.LobbyManagerInstance.OnMemberConnect.Invoke(lobbyId, userId);
@@ -2839,7 +2838,7 @@ namespace Discord
         private static void OnMemberUpdateImpl(IntPtr ptr, Int64 lobbyId, Int64 userId)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.LobbyManagerInstance.OnMemberUpdate != null)
             {
                 d.LobbyManagerInstance.OnMemberUpdate.Invoke(lobbyId, userId);
@@ -2850,7 +2849,7 @@ namespace Discord
         private static void OnMemberDisconnectImpl(IntPtr ptr, Int64 lobbyId, Int64 userId)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.LobbyManagerInstance.OnMemberDisconnect != null)
             {
                 d.LobbyManagerInstance.OnMemberDisconnect.Invoke(lobbyId, userId);
@@ -2861,7 +2860,7 @@ namespace Discord
         private static void OnLobbyMessageImpl(IntPtr ptr, Int64 lobbyId, Int64 userId, IntPtr dataPtr, Int32 dataLen)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.LobbyManagerInstance.OnLobbyMessage != null)
             {
                 byte[] data = new byte[dataLen];
@@ -2874,7 +2873,7 @@ namespace Discord
         private static void OnSpeakingImpl(IntPtr ptr, Int64 lobbyId, Int64 userId, bool speaking)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.LobbyManagerInstance.OnSpeaking != null)
             {
                 d.LobbyManagerInstance.OnSpeaking.Invoke(lobbyId, userId, speaking);
@@ -2885,7 +2884,7 @@ namespace Discord
         private static void OnNetworkMessageImpl(IntPtr ptr, Int64 lobbyId, Int64 userId, byte channelId, IntPtr dataPtr, Int32 dataLen)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.LobbyManagerInstance.OnNetworkMessage != null)
             {
                 byte[] data = new byte[dataLen];
@@ -3097,7 +3096,7 @@ namespace Discord
         private static void OnMessageImpl(IntPtr ptr, UInt64 peerId, byte channelId, IntPtr dataPtr, Int32 dataLen)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.NetworkManagerInstance.OnMessage != null)
             {
                 byte[] data = new byte[dataLen];
@@ -3110,7 +3109,7 @@ namespace Discord
         private static void OnRouteUpdateImpl(IntPtr ptr, string routeData)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.NetworkManagerInstance.OnRouteUpdate != null)
             {
                 d.NetworkManagerInstance.OnRouteUpdate.Invoke(routeData);
@@ -3300,7 +3299,7 @@ namespace Discord
         private static void OnToggleImpl(IntPtr ptr, bool locked)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.OverlayManagerInstance.OnToggle != null)
             {
                 d.OverlayManagerInstance.OnToggle.Invoke(locked);
@@ -3801,7 +3800,7 @@ namespace Discord
         private static void OnEntitlementCreateImpl(IntPtr ptr, ref Entitlement entitlement)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.StoreManagerInstance.OnEntitlementCreate != null)
             {
                 d.StoreManagerInstance.OnEntitlementCreate.Invoke(ref entitlement);
@@ -3812,7 +3811,7 @@ namespace Discord
         private static void OnEntitlementDeleteImpl(IntPtr ptr, ref Entitlement entitlement)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.StoreManagerInstance.OnEntitlementDelete != null)
             {
                 d.StoreManagerInstance.OnEntitlementDelete.Invoke(ref entitlement);
@@ -4039,7 +4038,7 @@ namespace Discord
         private static void OnSettingsUpdateImpl(IntPtr ptr)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.VoiceManagerInstance.OnSettingsUpdate != null)
             {
                 d.VoiceManagerInstance.OnSettingsUpdate.Invoke();
@@ -4199,7 +4198,7 @@ namespace Discord
         private static void OnUserAchievementUpdateImpl(IntPtr ptr, ref UserAchievement userAchievement)
         {
             GCHandle h = GCHandle.FromIntPtr(ptr);
-            Discord d = (Discord)h.Target;
+            UDiscord d = (UDiscord)h.Target;
             if (d.AchievementManagerInstance.OnUserAchievementUpdate != null)
             {
                 d.AchievementManagerInstance.OnUserAchievementUpdate.Invoke(ref userAchievement);

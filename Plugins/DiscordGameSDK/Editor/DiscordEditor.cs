@@ -1,5 +1,6 @@
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
 using UDiscord;
 public class DiscordEditor : ExtendedEditorWindow
 {
@@ -8,6 +9,7 @@ public class DiscordEditor : ExtendedEditorWindow
     public static DiscordManager manager;
     Texture2D Icon;
     static bool alreadyOpened;
+    public Vector2 scrollPosition = Vector2.zero;
     public static void Open(DiscordManager stats)
     {
         alreadyOpened = true;
@@ -55,7 +57,6 @@ public class DiscordEditor : ExtendedEditorWindow
 
     void DrawSelectedPropertiesPanel()
     {
-
         DrawProp("Discord_AppID");
 
         DrawProp("Discord_SteamID");
@@ -82,6 +83,7 @@ public class DiscordEditor : ExtendedEditorWindow
         {
             case 1 : //Rich Presence
                 EditorGUILayout.BeginVertical("box");
+                scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
 
                 DrawProp("Richpresence");
 
@@ -91,24 +93,25 @@ public class DiscordEditor : ExtendedEditorWindow
                     EditorGUILayout.HelpBox("There Are No ID for Discord , Please Add One" , MessageType.Warning);
                     EditorGUILayout.EndHorizontal();
                 }
-
+                EditorGUILayout.EndScrollView();
                 EditorGUILayout.EndVertical();
 
             break;
 
             case 2 : // Events
                 EditorGUILayout.BeginVertical("box");
-
+                scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
                 DrawProp("OnJoin");
                 DrawProp("OnConnect");
                 DrawProp("OnDisconnect");
                 DrawProp("OnDestroy");
 
+                EditorGUILayout.EndScrollView();
                 EditorGUILayout.EndVertical();
 
             break;
 
-            case 3 : // private
+            case 3 : // New Features
                 EditorGUILayout.BeginVertical("box");
 
 
@@ -122,10 +125,10 @@ public class DiscordEditor : ExtendedEditorWindow
     {
         if(GUILayout.Button("URL"))
         {
-            Application.OpenURL( "https://www.assetstore.unity3d.com/#!/content/95420" );
+            Application.OpenURL( "Discord.com ?" );
         }
 
-        if(GUILayout.Button("Debug/Private"))
+        if(GUILayout.Button("New Features"))
         {
             currentTab = 3;
         }
@@ -136,7 +139,7 @@ public class DiscordEditor : ExtendedEditorWindow
         }
     }
 
-    void ifyouwanttousefkingICon()
+    void IconTemplate()
     {
         EditorGUILayout.BeginHorizontal();
 
@@ -151,3 +154,4 @@ public class DiscordEditor : ExtendedEditorWindow
 		EditorGUILayout.EndHorizontal();
     }
 }
+#endif

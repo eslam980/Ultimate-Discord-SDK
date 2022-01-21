@@ -1,8 +1,10 @@
+#if UNITY_EDITOR
 using UnityEngine;
-using UnityEditor;
 using UDiscord;
+using UnityEditor;
 
 [CustomEditor(typeof(DiscordManager))]
+
 public class DiscordOpenEditor : Editor
 {
     public override void OnInspectorGUI()
@@ -13,3 +15,4 @@ public class DiscordOpenEditor : Editor
         }
     }
 }
+#endif

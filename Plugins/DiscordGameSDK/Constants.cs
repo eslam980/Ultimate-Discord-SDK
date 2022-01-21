@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Discord
+namespace UDiscord
 {
     static class Constants
     {

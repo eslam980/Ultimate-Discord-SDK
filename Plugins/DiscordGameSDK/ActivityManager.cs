@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Discord
+namespace UDiscord
 {
     public partial class ActivityManager
     {
