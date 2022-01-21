@@ -5,7 +5,7 @@ This is A Discord SDK for Unity
 ## Features
 - Easy To Use.
 - Join/Request System,
-- Fully Unity Integration
+- Full Unity Integration
 - Modular Code (Easy To Understand)
 - Safe Mode.
 - Custom Inspector.
@@ -20,6 +20,51 @@ This is A Discord SDK for Unity
 - Put **Plugins** File into to your Unity Project.
 - Make Script or Use The Template.
 - Use ```Using UDiscord``` to Access All The Fuctions
+
+## Examples
+- Button : Add Button Into The Scene And Make A Script
+- Add ```Discord Manager``` into The Scene , Assign **AppID**
+- Code Example :
+```csharp
+
+using UnityEngine;
+using UDiscord; // Use This To Get Discord Manager
+
+public class ExampleButton : MonoBehaviour
+{
+    public void OnClick()
+    {
+        // Calling DiscordManager.App.UpdateRich : To Update Dicsord Rich But Will Change detail , state Only 
+        // Only Things That you put it in UpdateRich , Will Change , Others will stay the Same.
+        
+        DiscordManager.App.UpdateRich(detail : "Playing Solo" , state : "Private Lobby");
+    }
+}
+
+```
+- Other Example Is A **OnTriggerEnter()**  To Change Rich will entering Another Area
+- Code Example :
+```csharp
+
+using UnityEngine;
+using UDiscord; // Use This To Get Discord Manager
+
+public class ExampleTrigger : MonoBehaviour
+{
+    void OnTriggerEnter(Collider other)
+    {
+        //When AnyThing enter Area
+        DiscordManager.App.UpdateRich(detail : "Playing Solo" , state : "Desert");
+
+        //other Way
+        if(other.gameObject.CompareTag("Player"))
+        {
+            DiscordManager.App.UpdateRich(detail : "Playing Solo" , state : "Sky");
+        }
+    }
+}
+
+```
 
 ## Discord Manager
 This is The Manager that handle all the Work to Connect with discord
